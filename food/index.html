@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="hero-bg">
+        <div class="overlay" id="overlay">
+            <h3>Searching Now...</h3>
+        </div>
+        <section class = "top">
+            <header>
+                <div class="navcontainer">
+                    <img src="images/boostlogo.png" alt="boost logo" class="logo">
+                    <nav>
+                        <ul>
+                            
+                            <li><a href="#reviewpage">Reviews</a></li>
+                            <li><a href="#aboutpage">About me</a></li>
+                            <li><a href="#">Home</a></li>
+                            
+                        </ul>
+                    </nav>
+                    
+                </div>
+                
+            </header>
+
+            <h1>Order A Boost</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora esse iste perspiciatis vero facilis, mollitia ducimus ratione inventore, veniam harum aliquam ab odit consequuntur dolorem optio?</p>
+        
+            <div class="form-container">
+                <form action="">
+                    <div class="form-left">
+                        <label for="user">Riot ID</label>
+                        <input type="text" name ="user" id = "user">
+                        <p>Example: Bob#NA1</p>
+                    </div>
+                    
+                    <input type="button" value = "ORDER NOW" id="cta-btn">
+                </form>
+            </div>
+        </section>
+    </div>
+    <div>
+        <div class="about">
+            <section class="about">
+                <div class="right-col">
+                    <h2><a name = aboutpage>Hire the Best</a></h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, deleniti architecto! Voluptatibus minima voluptas tenetur quam explicabo quaerat quis facere. Minima tempora laudantium optio, voluptatem ut officia veniam nemo animi, culpa illum molestias natus? Impedit voluptatum aperiam eos magni quae.</p>
+                </div>
+                <img src="images/rank.png" alt="rank">
+            </section>
+        </div>
+        
+    </div>
+    <div>
+        <div class="review-page">
+            <section class="container">
+                <div class="slider">
+                    <h2><a name = reviewpage>REVIEWS</a></h2>
+                    <div class="slide slide-1">
+                        <div class="slide-text">
+                            <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero id faucibus nisl tincidunt eget nullam non nisi. Lacus viverra vitae congue eu consequat."</p>
+                            <p class="author-text"> Master Oogway
+                            <span>From Plat 1 to Immortal</span></p>
+                            </div>
+                            
+                            <div class="slide-img">
+                                <img src="./images/review1.png" alt="img">
+                            </div>
+                    </div>
+        
+                    <div class="slide slide-2">
+                        <div class="slide-text">
+                            <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit ut aliquam purus sit amet luctus. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris."</p>
+                            <p class="author-text">Hawtwing
+                            <span>From Gold 1 to Diamond 1</span></p>
+                        </div>
+                        
+                        <div class="slide-img">
+                            <img src="./images/review2.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="slide slide-3">
+                        <div class="slide-text">
+                            <p class="testimonial-text">"Amet nisl purus in mollis nunc sed id semper. Porttitor lacus luctus accumsan tortor posuere ac ut. Tristique et egestas quis ipsum suspendisse ultrices. "</p>
+                            <p class="author-text"> Zpai
+                            <span>From Silver 1 to Gold 2</span></p>
+                            </div>
+                            
+                            <div class="slide-img">
+                                <img src="./images/review3.png" alt="img">
+                            </div>
+                    </div>
+                    <div class="slide slide-4">
+                        <div class="slide-text">
+                            <p class="testimonial-text">"Neque egestas congue quisque egestas. A scelerisque purus semper eget duis at tellus at. Tristique nulla aliquet enim tortor at auctor urna nunc. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo."</p>
+                            <p class="author-text">Mehtanoyah
+                            <span>From Gold 3 to Diamond 1</span></p>
+                            </div>
+                            
+                            <div class="slide-img">
+                                <img src="./images/review4.png" alt="img">
+                            </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="next"></div>
+                        <div class="prev"></div>
+                    </div>
+                </div>
+                    
+              </section>
+        </div>
+    </div>
+    
+    
+
+
+
+
+<script>
+    <!-- gets first element in the documents -->
+    const next = document.querySelector('.next');
+    const prev = document.querySelector('.prev');
+    const slides = document.querySelectorAll('.slide');
+
+    <!-- tracks index of slide -->
+    let index = 0;
+    display(index);
+
+    function display (index) {
+        <!-- wont show other slides -->
+        slides.forEach((slide) => {
+            slide.style.display = 'none';
+        });
+        <!-- makes the slides show up -->
+        slides[index].style.display = 'flex';
+    }
+
+
+    function nextSlide () {
+        index++;
+        <!-- loops back to first slide -->
+        if (index > slides.length - 1) {
+            index = 0;
+        }
+        display(index);
+    }
+    function prevSlide () {
+        index--;
+        <!-- loops to last slide -->
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+        display(index);
+    }
+
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+
+
+    let btn = document.getElementById("cta-btn");
+    let overlay = document.getElementById("overlay");
+    <!-- if clicked show searching screen and adds animation effects -->
+    function clicked(){
+        overlay.style.display = "grid";
+        overlay.classList.add('animate-overlay');
+        window.setTimeout(close, 3000); 
+    }
+
+    btn.addEventListener('click', clicked);
+    <!-- closes display after clicked -->
+    function close(){
+        overlay.style.display = "none";
+    }
+    
+</script>
+
+</body>
+</html>
